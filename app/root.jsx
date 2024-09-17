@@ -6,7 +6,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
 } from '@remix-run/react'
 
 import styles from '~/styles/main.css'
@@ -63,30 +62,3 @@ export const ErrorBoundary = ({ error }) => (
     </body>
   </html>
 )
-
-export const CatchBoundary = () => {
-  const caught = useCatch()
-
-  return (
-    <html lang='en'>
-      <head>
-        <Meta />
-        <Links />
-        <title>An Error Occurred</title>
-      </head>
-      <body>
-        <MainNavigation />
-        <main className='error'>
-          <h1>Something Went Wrong!</h1>
-          <p>{caught.message}</p>
-          <p>
-            Back to <Link to='/'>safety</Link>
-          </p>
-        </main>
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  )
-}
