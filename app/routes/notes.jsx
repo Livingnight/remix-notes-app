@@ -47,6 +47,13 @@ export const links = () => {
   return [...newNoteLinks(), ...storedNoteLinks()]
 }
 
+export function meta() {
+  return {
+    title: 'All Notes',
+    description: 'Manage your notes with ease',
+  }
+}
+
 export const CatchBoundary = () => {
   const caughtResponse = useCatch()
 
