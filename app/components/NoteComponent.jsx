@@ -1,12 +1,8 @@
-import { json } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
-import { getStoredNotes } from '~/data/notes'
+import { Link } from '@remix-run/react'
 
 import noteComponentStyles from '~/components/NoteComponent.css'
 
-export default function NoteComponent() {
-  const notes = useLoaderData()
-
+export default function NoteComponent({ notes }) {
   return (
     <ul className='note-field'>
       {notes.map((note, index) => (
@@ -40,11 +36,6 @@ export default function NoteComponent() {
       ))}
     </ul>
   )
-}
-
-export async function loader() {
-  const notesRetrieved = await getStoredNotes()
-  return json(notesRetrieved)
 }
 
 export const links = () => {

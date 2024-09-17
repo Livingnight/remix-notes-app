@@ -1,5 +1,5 @@
 import { json, redirect } from '@remix-run/node'
-import { Link, useCatch } from '@remix-run/react'
+import { Link, useCatch, useLoaderData } from '@remix-run/react'
 import NewNote, { links as newNoteLinks } from '~/components/NewNote'
 import NoteComponent, {
   links as storedNoteLinks,
@@ -7,10 +7,12 @@ import NoteComponent, {
 import { getStoredNotes, storeNotes } from '~/data/notes'
 
 export default function NotesPage() {
+  const notesFromLoader = useLoaderData()
+
   return (
     <main>
       <NewNote />
-      <NoteComponent />
+      <NoteComponent notes={notesFromLoader} />
     </main>
   )
 }
