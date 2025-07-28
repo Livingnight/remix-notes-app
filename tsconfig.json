@@ -1,5 +1,5 @@
 {
-  "include": ["remix.env.d.ts", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "include": ["remix.env.d.ts", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "eslintrc.config.cjs"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "isolatedModules": true,
